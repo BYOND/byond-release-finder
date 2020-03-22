@@ -4,6 +4,9 @@ spec:
   containers:
     - name: bash
       image: ellerbrock/alpine-bash-curl-ssl:latest
+      tty: true
+      command:
+        - cat
       volumeMounts:
         - name: upstream-releases
           mountPath: /releases
