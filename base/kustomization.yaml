@@ -1,0 +1,4 @@
+commonLabels:
+  app: byond-release-finder
+resources:
+  - pvcs.yaml
