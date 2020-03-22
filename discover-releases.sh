@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+rm -rf /releases/*
 
 process_release() {
   local FOLDER=$1
