@@ -10,6 +10,8 @@ process_release() {
     curl -o ${FOLDER}/${VERSION}/byond.zip http://www.byond.com/download/build/${MAJOR_VERSION}/${VERSION}_byond_linux.zip
     unzip ${FOLDER}/${VERSION}/byond.zip 'byond/*' -d ${FOLDER}/${VERSION}
     rm ${FOLDER}/${VERSION}/byond.zip
+    mv byond/* .
+    rm -rf byond
     return 1
   fi
   return 0
@@ -21,12 +23,12 @@ BETA_VERSION=${VERSIONS[1]}
 EXIT=0
 echo "Stable version is ${STABLE_VERSION}"
 process_release /releases/stable ${STABLE_VERSION}
-EXIT != $?
+EXIT=$(($?|${EXIT}))
 
 if [ "${#VERSIONS[@]}" -gt "1" ]; then
   echo "Beta version is ${BETA_VERSION}"
   process_release /releases/beta ${STABLE_VERSION}
-  EXIT != $?
+  EXIT=$(($?|${EXIT}))
 fi
 
 exit ${EXIT}
