@@ -5,11 +5,11 @@ spec:
     - name: bash
       image: ellerbrock/alpine-bash-curl-ssl:latest
       volumeMounts:
-        - name: byond-upstream-releases
+        - name: upstream-releases
           mountPath: /releases
   securityContext:
     fsGroup: 1000
   volumes:
-    - name: byond-upstream-releases
+    - name: upstream-releases
       persistentVolumeClaim:
-        claimName: byond-upstream-releases
+        claimName: upstream-releases
