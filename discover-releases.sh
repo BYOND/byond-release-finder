@@ -11,8 +11,6 @@ process_release() {
     curl -o ${FOLDER}/${VERSION}/byond.zip http://www.byond.com/download/build/${MAJOR_VERSION}/${VERSION}_byond_linux.zip
     unzip ${FOLDER}/${VERSION}/byond.zip 'byond/*' -d ${FOLDER}/${VERSION}
     rm ${FOLDER}/${VERSION}/byond.zip
-    mv byond/* .
-    rm -rf byond
     return 1
   fi
   return 0
