@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+rm -rf /releases/*
+
 process_release() {
   local FOLDER=$1
   local VERSION=$2
@@ -7,9 +9,7 @@ process_release() {
 
   if [ ! -d "${FOLDER}/${VERSION}" ]; then
     mkdir -p ${FOLDER}/${VERSION}
-    curl -o ${FOLDER}/${VERSION}/byond.zip http://www.byond.com/download/build/${MAJOR_VERSION}/${VERSION}_byond_linux.zip
-    unzip ${FOLDER}/${VERSION}/byond.zip 'byond/*' -d ${FOLDER}/${VERSION}
-    rm ${FOLDER}/${VERSION}/byond.zip
+    curl -o ${FOLDER}/${VERSION}/${VERSION}_byond_linux.zip http://www.byond.com/download/build/${MAJOR_VERSION}/${VERSION}_byond_linux.zip
     return 1
   fi
   return 0
