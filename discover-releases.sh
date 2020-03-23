@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-rm -rf /releases/*
-
 process_release() {
   local FOLDER=$1
   local VERSION=$2
@@ -20,12 +18,12 @@ STABLE_VERSION=${VERSIONS[0]}
 BETA_VERSION=${VERSIONS[1]}
 EXIT=0
 echo "Stable version is ${STABLE_VERSION}"
-process_release /releases/stable ${STABLE_VERSION}
+process_release /data/stable ${STABLE_VERSION}
 EXIT=$(($?|${EXIT}))
 
 if [ "${#VERSIONS[@]}" -gt "1" ]; then
   echo "Beta version is ${BETA_VERSION}"
-  process_release /releases/beta ${STABLE_VERSION}
+  process_release /data/beta ${STABLE_VERSION}
   EXIT=$(($?|${EXIT}))
 fi
 

@@ -8,11 +8,12 @@ spec:
       command:
         - cat
       volumeMounts:
-        - name: upstream-releases
-          mountPath: /releases
+        - name: packages
+          mountPath: /data
+          subPath: upstream
   securityContext:
     fsGroup: 1000
   volumes:
-    - name: upstream-releases
+    - name: packages
       persistentVolumeClaim:
-        claimName: upstream-releases
+        claimName: packages

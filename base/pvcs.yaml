@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: upstream-releases
+  name: packages
 spec:
   resources:
     requests:
