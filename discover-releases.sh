@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-rm -rf /data/beta
-
 process_release() {
   local FOLDER=$1
   local VERSION=$2
